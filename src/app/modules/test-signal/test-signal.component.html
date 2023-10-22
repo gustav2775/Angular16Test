@@ -1,0 +1,15 @@
+<div class="test-signal">
+  <div class="test-signal__title">
+    <h2>{{ this.titleSignal() }}</h2>
+  </div>
+
+  <div class="test-signal__content">
+    <p> <span class="test-signal__content_title">signalsService:</span> {{ signalService() }} </p>
+
+    <p> <span class="test-signal__content_title">signalsService:</span> {{ computedSignal() }} </p>
+
+    <p> <span class="test-signal__content_title">signalsService$:</span> {{ signalService$ | async}} </p>
+  </div>
+
+  <child-input [value]="signalService()" (valueChange)="valueChange($event)"></child-input>
+</div>

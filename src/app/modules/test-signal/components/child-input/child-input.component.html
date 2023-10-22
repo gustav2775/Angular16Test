@@ -1,0 +1,10 @@
+<div class="child-input" [class.invalid]="control.invalid" [class.focused]="focused">
+  <label for="control">Введите значение</label>
+  <input
+    id="control"
+    [formControl]="control"
+    (focus)="toggleFocused(true)"
+    (blur)="toggleFocused(false)"
+    type="text"
+  />
+</div>
