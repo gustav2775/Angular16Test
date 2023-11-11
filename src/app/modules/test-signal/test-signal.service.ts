@@ -3,12 +3,12 @@ import { toObservable } from '@angular/core/rxjs-interop';
 
 @Injectable()
 export class TestSignalService {
-  public signal = signal('TESTTTTTTTT TEXT')
+  public signal = signal('Content Signal')
   public signal$ = toObservable(this.signal)
 
   constructor() {
     setTimeout(() => {
-      this.signal.set('Updated Signal')
+      this.signal.set('Updated Content Signal')
     }, 2000);
   }
 }

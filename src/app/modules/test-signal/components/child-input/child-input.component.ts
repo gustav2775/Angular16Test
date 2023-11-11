@@ -9,9 +9,9 @@ import { map } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChildInputComponent {
-
   public focused = false;
 
+  @Input() public label?:string = 'Введите значение';
   @Input() public set value(v: string) {
     if(!!v) {
       this.control.setValue(v);

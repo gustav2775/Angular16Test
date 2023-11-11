@@ -11,5 +11,9 @@
     <p> <span class="test-signal__content_title">signalsService$:</span> {{ signalService$ | async}} </p>
   </div>
 
-  <child-input [value]="signalService()" (valueChange)="valueChange($event)"></child-input>
+  <div class="test-signal__content">
+    <child-input [value]="signalService()" (valueChange)="valueChange($event)"></child-input>
+
+    <child-input [label]="'Введите заголовок'" [value]="titleSignal()"  (valueChange)="titleChange($event)"></child-input>
+  </div>
 </div>

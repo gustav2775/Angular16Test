@@ -20,13 +20,17 @@ export class TestSignalComponent {
     this.configureEffectSignalTitle(); //only constructor
     this.configureEffectSignalService();
     this.configureEffectTimeoutSignalService(); //tik one
-
+    this.configureCombineSingle();
   }
 
   public valueChange(v: string): void {
     // this.signalService.set(v)
     this.signalService.update(() => v);
     // this.signalService.mutate(() => v)
+  }
+
+  public titleChange(t:string): void {
+    this.signal.set(t)
   }
 
   private configureEffectSignalTitle(): void {
@@ -46,6 +50,12 @@ export class TestSignalComponent {
       const timer = setTimeout(() => console.log(`EffectSignal Timeout`, this.signalService()), 1000);
 
       onClean(() => clearTimeout(timer))
+    });
+  }
+
+  private configureCombineSingle(): void {
+    effect(() => {
+      console.log(`CombineSignal`, this.signalService(), this.titleSignal());
     });
   }
 }
